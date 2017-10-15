@@ -1,15 +1,8 @@
-node.name: devnode
-network.host: 0.0.0.0
+server.name: kibana
+server.host: "0"
 
-node.master: true
-node.data: true
+elasticsearch.url: http://localhost:9200
+elasticsearch.username: elastic
+elasticsearch.password: changeme
 
-bootstrap.memory_lock: true
-
-script.inline: false
-script.stored: false
-script.file:   false
-
-script.engine.painless.inline:          true 
-script.engine.painless.stored.search:   true 
-script.engine.painless.stored.aggs:     true 
+xpack.monitoring.ui.container.elasticsearch.enabled: true

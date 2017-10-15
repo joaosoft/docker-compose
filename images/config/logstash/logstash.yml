@@ -1,0 +1,6 @@
+http.host: "0.0.0.0"
+path.config: /usr/share/logstash/pipeline
+
+elasticsearch.url: http://localhost:9200
+elasticsearch.username: elastic
+elasticsearch.password: changeme

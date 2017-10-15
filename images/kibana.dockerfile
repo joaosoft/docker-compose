@@ -1,8 +1,8 @@
-FROM docker.elastic.co/elasticsearch/elasticsearch:5.6.3
+FROM docker.elastic.co/kibana/kibana:5.6.2
 
-ADD ./config/elasticsearch.yml /usr/share/elasticsearch/config/
+ADD ./config/kibana.yml /usr/share/kibana/config/
 
 USER root
-RUN chown elasticsearch:elasticsearch config/elasticsearch.yml
+RUN chown kibana:kibana config/kibana.yml
 
-USER elasticsearch
+USER kibana

@@ -1,8 +1,4 @@
-FROM docker.elastic.co/elasticsearch/elasticsearch:5.6.3
+FROM docker.elastic.co/logstash/logstash:5.6.3
 
-ADD ./config/elasticsearch.yml /usr/share/elasticsearch/config/
-
-USER root
-RUN chown elasticsearch:elasticsearch config/elasticsearch.yml
-
-USER elasticsearch
+ADD ./config/logstash/logstash.yml /usr/share/logstash/config/
+ADD ./config/logstash/logstash.conf /usr/share/logstash/pipeline/

@@ -1,0 +1,152 @@
+{
+	"id": "5e2f1f82-55db-d1c5-f431-82610d4b75db",
+	"name": "HOME",
+	"description": "",
+	"order": [],
+	"folders": [
+		{
+			"name": "Elastic Search",
+			"description": "",
+			"collectionId": "5e2f1f82-55db-d1c5-f431-82610d4b75db",
+			"order": [
+				"a4f78e75-7a4e-3df2-63a4-46cd802084f4",
+				"3591aa90-2109-6bdc-17de-7869a2d9a52f",
+				"9ddf99f1-e64b-9013-0bef-c87f6ab24c5d",
+				"4603e5d4-b422-7d7a-d119-a1977852268e"
+			],
+			"owner": "1873098",
+			"folders_order": [],
+			"id": "6168760d-9732-a2d5-4857-73403e16259b"
+		}
+	],
+	"folders_order": [
+		"6168760d-9732-a2d5-4857-73403e16259b"
+	],
+	"timestamp": 1508089399361,
+	"owner": "1873098",
+	"public": false,
+	"requests": [
+		{
+			"id": "3591aa90-2109-6bdc-17de-7869a2d9a52f",
+			"headers": "Content-Type: application/json\n",
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "{{api_url}}/products",
+			"folder": "6168760d-9732-a2d5-4857-73403e16259b",
+			"queryParams": [],
+			"preRequestScript": null,
+			"pathVariables": {},
+			"pathVariableData": [],
+			"method": "PUT",
+			"data": [],
+			"dataMode": "raw",
+			"version": 2,
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1508090325184,
+			"name": "Create mapping",
+			"description": "",
+			"collectionId": "5e2f1f82-55db-d1c5-f431-82610d4b75db",
+			"responses": [],
+			"rawModeData": "{\n  \"mappings\": {\n    \"product\": {\n      \"properties\": {\n        \"name\": {\n          \"type\": \"text\"\n        },\n        \"type\": {\n          \"type\": \"text\"\n        }\n      }\n    }\n  }\n}\n"
+		},
+		{
+			"id": "4603e5d4-b422-7d7a-d119-a1977852268e",
+			"headers": "Content-Type: application/json\n",
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "{{api_url}}/products/worten/2",
+			"folder": "6168760d-9732-a2d5-4857-73403e16259b",
+			"queryParams": [],
+			"preRequestScript": null,
+			"pathVariables": {},
+			"pathVariableData": [],
+			"method": "PUT",
+			"data": [],
+			"dataMode": "raw",
+			"version": 2,
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1508090518642,
+			"name": "Create product 2",
+			"description": "",
+			"collectionId": "5e2f1f82-55db-d1c5-f431-82610d4b75db",
+			"responses": [],
+			"rawModeData": "{\n  \"name\": \"PRODUTO 2\",\n  \"type\": \"MEIAS\"\n}"
+		},
+		{
+			"id": "9ddf99f1-e64b-9013-0bef-c87f6ab24c5d",
+			"headers": "Content-Type: application/json\n",
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "{{api_url}}/products/worten/1",
+			"folder": "6168760d-9732-a2d5-4857-73403e16259b",
+			"queryParams": [],
+			"preRequestScript": null,
+			"pathVariables": {},
+			"pathVariableData": [],
+			"method": "PUT",
+			"data": [],
+			"dataMode": "raw",
+			"version": 2,
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1508090511029,
+			"name": "Create product 1",
+			"description": "",
+			"collectionId": "5e2f1f82-55db-d1c5-f431-82610d4b75db",
+			"responses": [],
+			"rawModeData": "{\n  \"name\": \"PRODUTO 1\",\n  \"type\": \"SAPATOS\"\n}"
+		},
+		{
+			"id": "a4f78e75-7a4e-3df2-63a4-46cd802084f4",
+			"headers": "Content-Type: application/json\n",
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "{{api_url}}/products",
+			"queryParams": [],
+			"preRequestScript": null,
+			"pathVariables": {},
+			"pathVariableData": [],
+			"method": "PUT",
+			"data": [],
+			"dataMode": "raw",
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1508090302315,
+			"name": "Create Index",
+			"description": "",
+			"collectionId": "5e2f1f82-55db-d1c5-f431-82610d4b75db",
+			"responses": [],
+			"rawModeData": "{\n    \"settings\" : {\n        \"index\" : {\n            \"number_of_shards\" : 3, \n            \"number_of_replicas\" : 2 \n        }\n    }\n}"
+		}
+	]
+}
