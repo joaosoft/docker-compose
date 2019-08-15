@@ -19,6 +19,23 @@ services:
         aliases:
           - home.postgres
 
+  rabbitmq.simple:
+    image: home.rabbitmq
+    container_name: home.rabbitmq
+    hostname: home.rabbitmq
+    environment:
+      RABBITMQ_DEFAULT_VHOST: "dev"
+      RABBITMQ_DEFAULT_USER: "user"
+      RABBITMQ_DEFAULT_PASS: "password"
+    volumes:
+      - "${DOCKER_ENV_DEV_RABBITMQ_DATA_PATH}:/var/lib/rabbitmq:rw"
+    ports:
+      - 15672:15672
+      - 5672:5672
+    networks:
+      default:
+        aliases:
+          - home.rabbitmq
 volumes:
   esdata1:
     driver: local
