@@ -1,59 +1,23 @@
-version: '2.1'
+version: '3.3'
 services:
-  elasticsearch:
-    build:
-      context: ./images
-      dockerfile: ./elasticsearch.dockerfile
-    container_name: elasticsearch
+
+  home.postgres:
+    image: postgres:latest
+    container_name: home.postgres
+    restart: always
     environment:
-      - cluster.name=docker-cluster
-      - bootstrap.memory_lock=true
-      - "ES_JAVA_OPTS=-Xms512m -Xmx512m"
-    ulimits:
-      memlock:
-        soft: -1
-        hard: -1
-    mem_limit: 1g
-    networks:
-      - mynetwork
-    volumes:
-      - esdata1:/usr/share/elasticsearch/data
+      POSTGRES_USER: user
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: postgres
     ports:
-      - 9200:9200
-      - 9300:9300
-
-  kibana:
-    build:
-      context: ./images
-      dockerfile: ./kibana.dockerfile
-    container_name: kibana
-    networks:
-      - mynetwork
+      - 7000:5432
     volumes:
-      - esdata1:/usr/share/kibana/data
-    ports:
-      - 5601:5601
-    depends_on:
-      - elasticsearch
-
-  logstash:
-    build:
-      context: ./images
-      dockerfile: ./logstash.dockerfile
-    container_name: logstash
-    environment:
-      LS_JAVA_OPTS: "-Xmx256m -Xms256m"
+      - "$HOME/docker/home/postgres:/var/lib/postgresql/data"
+      - "$HOME/docker/home/log:/var/log/postgres"
     networks:
-      - mynetwork
-    volumes:
-      - esdata1:/usr/share/logstash/data
-    ports:
-      - "5000:5000"
-    depends_on:
-      - elasticsearch
-
-networks:
-  mynetwork:
+      default:
+        aliases:
+          - home.postgres
 
 volumes:
   esdata1:
