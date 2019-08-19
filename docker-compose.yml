@@ -10,7 +10,7 @@ services:
       POSTGRES_PASSWORD: password
       POSTGRES_DB: postgres
     ports:
-      - 7000:5432
+      - 5432:5432
     volumes:
       - "$HOME/docker/home/postgres:/var/lib/postgresql/data"
       - "$HOME/docker/home/log:/var/log/postgres"
@@ -19,23 +19,39 @@ services:
         aliases:
           - postgres
 
-  rabbitmq:
-    image: rabbitmq
-    container_name: rabbitmq
-    hostname: rabbitmq
-    environment:
-      RABBITMQ_DEFAULT_VHOST: "dev"
-      RABBITMQ_DEFAULT_USER: "user"
-      RABBITMQ_DEFAULT_PASS: "password"
-    volumes:
-      - "$HOME/docker/home/rabbitmq:/var/lib/rabbitmq:rw"
+  gateway:
+    image: joaosoft/gateway
+    container_name: gateway
+    hostname: gateway
     ports:
-      - 15672:15672
-      - 5672:5672
+      - 8000:8000
     networks:
       default:
         aliases:
-          - rabbitmq
+          - gateway
+
+  auth:
+    image: joaosoft/auth
+    container_name: auth
+    hostname: auth
+    ports:
+      - 8001:8001
+    networks:
+      default:
+        aliases:
+          - auth
+
+  profile:
+    image: joaosoft/profile
+    container_name: profile
+    hostname: profile
+    ports:
+      - 8002:8002
+    networks:
+      default:
+        aliases:
+          - profile
+
 volumes:
   esdata1:
     driver: local
