@@ -28,7 +28,7 @@ services:
       RABBITMQ_DEFAULT_USER: "user"
       RABBITMQ_DEFAULT_PASS: "password"
     volumes:
-      - "${DOCKER_ENV_DEV_RABBITMQ_DATA_PATH}:/var/lib/rabbitmq:rw"
+      - "$HOME/docker/home/rabbitmq:/var/lib/rabbitmq:rw"
     ports:
       - 15672:15672
       - 5672:5672
