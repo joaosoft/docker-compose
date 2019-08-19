@@ -1,9 +1,9 @@
 version: '3.3'
 services:
 
-  home.postgres:
+  postgres:
     image: postgres:latest
-    container_name: home.postgres
+    container_name: postgres
     restart: always
     environment:
       POSTGRES_USER: user
@@ -17,12 +17,12 @@ services:
     networks:
       default:
         aliases:
-          - home.postgres
+          - postgres
 
-  rabbitmq.simple:
-    image: home.rabbitmq
-    container_name: home.rabbitmq
-    hostname: home.rabbitmq
+  rabbitmq:
+    image: rabbitmq
+    container_name: rabbitmq
+    hostname: rabbitmq
     environment:
       RABBITMQ_DEFAULT_VHOST: "dev"
       RABBITMQ_DEFAULT_USER: "user"
@@ -35,7 +35,7 @@ services:
     networks:
       default:
         aliases:
-          - home.rabbitmq
+          - rabbitmq
 volumes:
   esdata1:
     driver: local
