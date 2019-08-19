@@ -52,6 +52,5 @@ services:
         aliases:
           - profile
 
-volumes:
-  esdata1:
-    driver: local
+networks:
+  default:
