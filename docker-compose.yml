@@ -54,4 +54,5 @@ services:
 
 networks:
   default:
+    name: 'bridge'
     driver: 'bridge'
